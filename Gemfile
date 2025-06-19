@@ -21,6 +21,7 @@ group :development, :test do
   gem 'net-imap', '~> 0.2.2'
   gem 'net-pop', '~> 0.1.1'
   gem 'net-smtp', '~> 0.3.0'
+  gem 'nkf', '~> 0.2.0'
   if rails_version == "edge"
     gem "actionmailer", :git => "git://github.com/rails/rails.git"
   elsif rails_version && rails_version.strip != ""

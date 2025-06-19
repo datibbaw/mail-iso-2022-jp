@@ -58,6 +58,13 @@ class MailTest < ActiveSupport::TestCase
     assert_equal NKF::JIS, NKF.guess(mail.body.encoded)
   end
 
+  test "should encode header" do
+    mail = Mail.new(:charset => 'ISO-2022-JP') do
+      header "Subject: hello world\r\n"
+    end
+    assert_equal "Subject: hello world\r\n", mail.header.encoded
+  end
+
   test "should send with ISO-2022-JP encoding and quoted display-name" do
     mail = Mail.new(:charset => 'ISO-2022-JP') do
       from '" <Yamada 太郎>" <taro@example.com>'
